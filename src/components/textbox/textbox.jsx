@@ -7,6 +7,9 @@ import classnames from "classnames";
 // prop-types
 import { node, string, bool, func, oneOf } from "prop-types";
 
+// styles
+import "./textbox.css";
+
 const Textbox = ({
   classname,
   children,
