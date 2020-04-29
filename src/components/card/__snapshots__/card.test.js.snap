@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Case 1: Card Component Renders Correctly 1`] = `
+<div
+  className="card-component-background-1 normal-card card-component"
+  data-testid="card"
+>
+  Test
+</div>
+`;

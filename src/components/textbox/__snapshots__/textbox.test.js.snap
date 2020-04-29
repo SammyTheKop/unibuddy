@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Case 1: Textbox Component Renders Correctly or not 1`] = `
+<div
+  className="textbox-component"
+>
+  <input
+    aria-label="textbox"
+    aria-required={false}
+    className=""
+    data-testid="textbox"
+    onChange={[Function]}
+    placeholder="This is a Nacho Style Textbox"
+    readOnly={false}
+    required={false}
+    type="text"
+    value=""
+  />
+</div>
+`;

@@ -1,12 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// react
+import React from "react";
 
-function App() {
+// components
+import Button from "../components/button/button";
+import Card from "../components/card/card";
+
+// styles
+import "./App.css";
+
+const App = () => {
+  const handleButtonClick = () => {
+    console.log("Button Clicked");
+  };
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -19,8 +27,11 @@ function App() {
           Learn React
         </a>
       </header>
+      <Card>
+        <Button handleclick={handleButtonClick}>Test</Button>
+      </Card>
     </div>
   );
-}
+};
 
 export default App;

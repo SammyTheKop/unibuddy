@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Case 1: Button Component Renders Correctly 1`] = `
+<div
+  className="button-component"
+>
+  <button
+    className="button-medium button"
+    data-testid="button"
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
+    <p
+      className="button-text"
+      data-testid="button-text"
+    >
+      Test
+    </p>
+  </button>
+</div>
+`;
