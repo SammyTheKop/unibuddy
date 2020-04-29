@@ -1,18 +1,43 @@
-/* Styles for the App.css */
+/* Styles for the App.css
+  Approach: Mobile First
+  Multiple Media queries stacked below each css classes instead of one media query for better code understanding
+*/
+
 .App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: whitesmoke;
+}
+
+.App-search-bar {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.App-search-bar {
-  display: flex;
+@media (min-width: 600px) {
+  .App-search-bar {
+    flex-direction: row;
+  }
 }
 
 .App-cards {
   margin: 40px;
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: auto;
+}
+
+@media (min-width: 600px) {
+  .App-cards {
+    grid-template-columns: auto auto;
+  }
+}
+
+.App-cards-empty {
+  margin: 40px;
+  display: grid;
+  grid-template-columns: auto;
 }
 
 .normal-card {
@@ -28,4 +53,8 @@
 .text-suggestion-content {
   position: absolute;
   width: 275px;
+}
+
+.button-component {
+  margin: 20px;
 }
