@@ -10,6 +10,9 @@ import Textbox from "../textbox/textbox";
 // styles
 import "./textSuggestion.css";
 
+// lodash
+import { debounce } from "lodash";
+
 // utils: search function
 const search = require("../../utils/search");
 
@@ -68,15 +71,16 @@ const TextSuggestion = ({
   /**
    * @name handleChange
    * @description handles the textbox events and updates the data in state
+   * @description Debouncing the onChange handler to not run the code too many times
    * @param inputText
    * @returns none
    */
-  const handleChange = (inputText) => {
+  const handleChange = debounce((inputText) => {
     setTextValue(inputText);
     const data = search.searchUtility(inputText, 3);
     setSuggestionData(data);
     setShowSuggestions(true);
-  };
+  }, 500);
 
   /**
    * @name handleSuggestionsClick
