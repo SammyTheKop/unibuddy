@@ -20,26 +20,13 @@ const App = () => {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      <Card>
+      <div className="App-search-bar">
         <Button handleclick={handleButtonClick}>Test</Button>
         <Textbox
           handleChange={(e) => handleTextboxChange(e.target.value)}
           placeholder="This is a Nacho Style Textbox"
         />
-      </Card>
+      </div>
     </div>
   );
 };
