@@ -14,6 +14,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:search-util": "jest ./utils/search.test.js",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
