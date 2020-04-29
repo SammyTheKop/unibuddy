@@ -1,32 +1,56 @@
 // react
-import React from "react";
+import React, { useState } from "react";
 
 // components
 import Button from "../components/button/button";
 import Card from "../components/card/card";
-import Textbox from "../components/textbox/textbox";
+import TextSuggestion from "../components/textSuggestion/textSuggestion";
 
 // styles
 import "./App.css";
 
 const App = () => {
+  const [selectedItem, setSelectedItem] = useState({});
+  const [totalItems, setTotalItems] = useState([]);
+
   const handleButtonClick = () => {
-    console.log("Button Clicked");
+    setTotalItems([...totalItems, selectedItem]);
   };
 
-  const handleTextboxChange = (inputText) => {
-    console.log(inputText);
+  const handleSuggestions = (value) => {
+    setSelectedItem(value);
+  };
+
+  const getBookCards = () => {
+    return (
+      <>
+        {totalItems.map((item) => {
+          return (
+            <Card>
+              Name: {item.title}
+              Id: {item.id}
+              Author: {item.Author}
+              Description: {item.summary}
+            </Card>
+          );
+        })}
+      </>
+    );
   };
 
   return (
     <div className="App">
+      <p>Search Books</p>
       <div className="App-search-bar">
-        <Button handleclick={handleButtonClick}>Test</Button>
-        <Textbox
-          handleChange={(e) => handleTextboxChange(e.target.value)}
-          placeholder="This is a Nacho Style Textbox"
+        <TextSuggestion
+          placeHolder="This is a Nacho Style Textbox"
+          handlesuggestions={(e) => handleSuggestions(e)}
         />
+        <Button handleclick={handleButtonClick}>Test</Button>
       </div>
+      {totalItems.length > 0 && (
+        <div className="App-cards">{getBookCards()}</div>
+      )}
     </div>
   );
 };

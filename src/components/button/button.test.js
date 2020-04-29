@@ -8,7 +8,7 @@ import Button from "./button";
 import renderer from "react-test-renderer";
 
 // testing library react
-import { render, fireEvent } from "@testing-library/react";
+import { render, fireEvent, cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
 /**
@@ -75,3 +75,5 @@ it("Case 5: Checks the Button Component Name is correct or Not", () => {
   const { getByText } = render(<TestComponent />);
   expect(getByText("Click to increase: 0")).toBeInTheDocument();
 });
+
+afterEach(cleanup);

@@ -1,0 +1,24 @@
+/* Suggestions Under the Textinput */
+.suggestion-content-buttons {
+  background: whitesmoke;
+  margin: 0px;
+  border: 0px;
+  box-shadow: none;
+  color: black;
+  padding: 16px;
+  width: 100%;
+}
+
+/* Dynamically Displaying and removing the suggestion block */
+.suggestion-content-buttons--display {
+  display: block;
+}
+
+.suggestion-content-buttons--displayNone {
+  display: none;
+}
+
+/* Change color of dropdown links on hover */
+.suggestion-content-buttons:hover {
+  background: wheat;
+}

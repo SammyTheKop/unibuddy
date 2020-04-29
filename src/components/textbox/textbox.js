@@ -10,6 +10,23 @@ import { node, string, bool, func, oneOf } from "prop-types";
 // styles
 import "./textbox.css";
 
+/**
+ * @name Textbox
+ * @description Text Suggestion React Component
+ * @param className
+ * @param children
+ * @param readOnly
+ * @param value
+ * @param handleChange
+ * @param handleClearValue
+ * @param type
+ * @param ariaLabel
+ * @param isRequired
+ * @param canClear
+ * @param placeHolder
+ * @param props (Extra)
+ * @returns TextSuggestion Component
+ */
 const Textbox = ({
   classname,
   children,
@@ -24,20 +41,41 @@ const Textbox = ({
   placeHolder,
   ...props
 }) => {
+  // state constant to maintain the text value
   const [textValue, setTextValue] = useState(value);
+
+  // react ref to identify the textinput Dom element
   const textInput = useRef(null);
 
+  /**
+   * @name useEffect
+   * @description updates the text value in state whenever the value prop changes
+   * @param none
+   * @returns none
+   */
   useEffect(() => {
     if (textValue !== value) {
       setTextValue(value);
     }
   }, [value]);
 
+  /**
+   * @name updateTextValue
+   * @description handles the textbox events and updates the data in state
+   * @param e
+   * @returns none
+   */
   const updateTextValue = (e) => {
     setTextValue(e.target.value);
     handleChange(e);
   };
 
+  /**
+   * @name clearField
+   * @description removes the data from the text input
+   * @param none
+   * @returns none
+   */
   const clearField = () => {
     setTextValue("");
     handleClearValue();
@@ -74,6 +112,7 @@ const Textbox = ({
           tabIndex="0"
           aria-pressed="false"
           aria-label="clear-textbox"
+          aria-labelledby="clear-texttbox"
           onClick={clearField}
           onKeyPress={(e) => {
             if (e.key === "Enter") {

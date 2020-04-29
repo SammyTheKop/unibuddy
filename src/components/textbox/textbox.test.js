@@ -7,7 +7,7 @@ import Textbox from "./textbox";
 import renderer from "react-test-renderer";
 
 // testing library react
-import { render, fireEvent } from "@testing-library/react";
+import { render, fireEvent, cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
 // Case 1: Textbox Renders properly or not
@@ -40,6 +40,11 @@ const TestComponent = () => {
   );
 };
 
+/**
+ * @name setup
+ * @details renders and identifies the input field from the testbox component
+ * @returns input
+ */
 const setup = () => {
   const utils = render(<TestComponent />);
   const input = utils.getByLabelText("textbox");
@@ -78,3 +83,5 @@ it("Case 5: Checks the value of the textbox-clear testid", () => {
   const { getByTestId } = render(<TestComponent />);
   expect(getByTestId("textbox")).toBeInTheDocument();
 });
+
+afterEach(cleanup);

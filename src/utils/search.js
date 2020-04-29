@@ -59,7 +59,7 @@ const searchUtility = (text, count) => {
 
   if (finalResult.length < count) {
     let remainingItemCount = count - stringMatchCount;
-    finalResult = [...finalResult, dummyData.slice(0, remainingItemCount)];
+    finalResult = [...finalResult, ...dummyData.slice(0, remainingItemCount)];
     return finalResult;
   }
 };

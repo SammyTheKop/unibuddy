@@ -8,7 +8,7 @@ import Card from "./card";
 import renderer from "react-test-renderer";
 
 // testing library react
-import { render } from "@testing-library/react";
+import { render, cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
 // Case 1: Card Snapshot matches or not
@@ -46,3 +46,5 @@ it("Case 5: Card Renders default classnames properly or not", () => {
     "extra-classname normal-card card-component"
   );
 });
+
+afterEach(cleanup);
