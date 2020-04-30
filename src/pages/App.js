@@ -14,21 +14,49 @@ import "./App.css";
 // error boundary
 import ErrorBoundary from "../components/errorBoundary/errorBoundary";
 
+/**
+ * @name App
+ * @description App Component
+ * @returns Custom JSX of the APP Component
+ */
 const App = () => {
+  // state constant to maintain the selected items
   const [selectedItem, setSelectedItem] = useState({});
+
+  // state constant to maintain the total items
   const [totalItems, setTotalItems] = useState([]);
+
+  // state constant to maintain the text typed
   const [text, setText] = useState("");
 
+  /**
+   * @name handleButtonClick
+   * @description handles the click of the button: Add Books
+   * @param none
+   * @returns none
+   */
   const handleButtonClick = () => {
     if (text) {
       setTotalItems([...totalItems, selectedItem]);
     }
   };
 
+  /**
+   * @name handleSuggestions
+   * @description handles the auto suggestion component changes
+   * @param none
+   * @returns none
+   */
   const handleSuggestions = (value) => {
     setSelectedItem(value);
   };
 
+  /**
+   * @name getBookCards
+   * @description returns the book cards
+   * @param none
+   * @returns Custom JSX
+   */
   const getBookCards = () => {
     return (
       <>
@@ -47,6 +75,12 @@ const App = () => {
     );
   };
 
+  /**
+   * @name getEmptyCard
+   * @description returns the empty book cards
+   * @param none
+   * @returns Custom JSX
+   */
   const getEmptyCard = () => {
     return (
       <Card classname="card-component-background-4 text-center">
