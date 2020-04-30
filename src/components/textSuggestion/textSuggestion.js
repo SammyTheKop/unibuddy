@@ -30,6 +30,7 @@ const search = require("../../utils/search");
  * @param isRequired
  * @param canClear
  * @param placeHolder
+ * @param handleTextChange
  * @param props (Extra)
  * @returns TextSuggestion Component
  */
@@ -45,6 +46,7 @@ const TextSuggestion = ({
   isRequired,
   canClear,
   placeHolder,
+  setText,
   ...props
 }) => {
   // state constant to maintain the text value
@@ -80,7 +82,8 @@ const TextSuggestion = ({
     const data = search.searchUtility(inputText, 3);
     setSuggestionData(data);
     setShowSuggestions(true);
-  }, 500);
+    setText(inputText);
+  }, 300);
 
   /**
    * @name handleSuggestionsClick
